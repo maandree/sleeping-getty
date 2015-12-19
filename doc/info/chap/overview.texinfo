@@ -1,5 +1,15 @@
 @node Overview
 @chapter Overview
 
-@command{sleeping-getty}
+@command{sleeping-getty} waits until a selected
+virtual terminal is brought to the foreground.
+Then, or if the process started with this
+virtual terminal in the foreground, the process
+changes image to a getty program.
+
+This is used to save CPU cycles during boot
+to get a smoother boot, which is important if
+your getty program does a lot of things, or if
+your computer is not too powerful. It also
+reduces the memory footprint.
 

@@ -1,5 +1,43 @@
 @node Invoking
 @chapter Invoking
 
-@command{sleeping-getty}
+Example usages:
+@example
+/sbin/sleeping-getty 15 /sbin/got tty15 TERM=linux
+
+/sbin/sleeping-getty 16 /sbin/got tty16 TERM=linux
+
+/sbin/sleeping-getty 20 /sbin/agetty -8 -s 38400 tty20 linux
+@end example
+
+The first argument shall be the number of the
+virtual terminal the process waits for to be
+be brought to the foreground.
+
+The second argument shall be pathname of the
+getty program that shall be started once the
+virtual terminal is in the foreground. Note
+that @env{PATH} is probably not set up, and
+a full pathname is required.
+
+The rest of the arguments shall be those that
+are passed to the getty program.
+
+For example,
+@example
+/sbin/sleeping-getty 15 /sbin/got tty15 TERM=linux
+@end example
+@noindent
+shall wait for virtual terminal number 15
+(on which you will find @file{/dev/tty15})
+to become active. Then the processes is
+switch to, without forking,
+@command{/sbin/got tty15 TERM=linux},
+which is Gates of Tartaros on @file{/dev/tty15}
+with the environment variable @env{TERM} set
+to @command{linux}.
+
+Note that sleeping-getty works on VT:s, not TTY:s.
+It cannot wait for a serial console to become,
+active, only virtual terminals.
 
