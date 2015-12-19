@@ -37,7 +37,17 @@ which is Gates of Tartaros on @file{/dev/tty15}
 with the environment variable @env{TERM} set
 to @command{linux}.
 
-Note that sleeping-getty works on VT:s, not TTY:s.
-It cannot wait for a serial console to become,
-active, only virtual terminals.
+Note that @command{sleeping-getty} works on
+VT:s, not TTY:s. It cannot wait for a serial
+console to become, active, only virtual terminals.
+
+Also note, @command{sleeping-getty} does not acquire
+the TTY. That would be a waste of CPU cycles. This
+means, if naïvely used, that if you start your
+computer, log in on @file{tty1}, and start @command{X},
+and have @command{startx} configured to start @command{X}
+on the next available VT. @command{X} will start on
+VT@tie{}2. This is probably not want you want. Instead
+you should edit startx to ensure that a VT lower than
+a preferred number (customarily 7) will not be used.
 

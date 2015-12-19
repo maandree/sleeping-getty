@@ -20,6 +20,15 @@ EXAMPLE
 
 	/sbin/sleeping-getty 20 /sbin/agetty -8 -s 38400 tty20 linux
 
+NOTES
+	sleeping-getty does not acquire the TTY. That would be a waste
+	of CPU cycles. This means, if naïvely used, that if you start
+	your computer, log in on tty1, and start X, and have startx
+	configured to start X on the next available VT. X will start
+	on VT 2. This is probably not want you want. Instead you
+	should edit startx to ensure that a VT lower than a preferred
+	number (customarily 7) will not be used.
+
 RATIONALE
 	It is nice to have a score or two of TTY:s available. However,
 	starting them, can require some unnecessary CPU time and will
