@@ -6,7 +6,7 @@ SYNOPSIS
 
 DESCRIPTION
 	sleeping-getty shall wait until VTNO (a number of a virtual terminal)
-	becomes the foreground console. Then, it shall execv(3) to GETTY_COMMAND,
+	becomes the foreground console. Then, it shall execvp(3) to GETTY_COMMAND,
 	with GETTY_COMMAND and all following arguments as the command line
 	arguments.
 
