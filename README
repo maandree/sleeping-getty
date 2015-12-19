@@ -5,12 +5,12 @@ SYNOPSIS
 	sleeping-getty VTNO GETTY_COMMAND...
 
 DESCRIPTION
-	sleeping-getty shall wait until VTNO (an number of a virtual terminal)
+	sleeping-getty shall wait until VTNO (a number of a virtual terminal)
 	becomes the foreground console. Then, it shall execv(3) to GETTY_COMMAND,
 	with GETTY_COMMAND and all following arguments as the command line
 	arguments.
 
-	Note that this program ways on VT:s, not TTY:s. It cannot wait for a
+	Note that sleeping-getty works on VT:s, not TTY:s. It cannot wait for a
 	serial console to become, active, only virtual terminals.
 
 EXAMPLE
@@ -27,5 +27,5 @@ RATIONALE
 	important on resource contained machines.
 
 SEE ALSO
-	getty(8), mingetty(8), agetty(8), got(8), vtchs(1)
+	getty(8), mingetty(8), agetty(8), got(8), vtchs(1), inittab(5)
 
