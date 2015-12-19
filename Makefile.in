@@ -51,7 +51,7 @@ COMMAND = sleeping-getty
 
 # Package information.
 _PROJECT = sleeping-getty
-_VERSION = 1.0
+_VERSION = 1.0.1
 
 # Used by mk/lang-c.mk
 _C_STD = c99
