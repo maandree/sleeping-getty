@@ -1,0 +1,59 @@
+.TH SLEEPING-GETTY 8 SLEEPING-GETTY
+.SH NAME
+sleeping\-getty \- Do not start a fullblow getty before it is necessary
+.SH SYNOPSIS
+.B sleeping\-getty
+.I VTNO
+.IR GETTY_COMMAND ...
+.SH DESCRIPTION
+.B sleeping\-getty
+shall wait until
+.I VTNO
+(a number of a virtual terminal) becomes the foreground console.
+Then, it shall
+.BR execv (3)
+to
+.IR GETTY_COMMAND ,
+with
+.I GETTY_COMMAND
+and all following arguments as the command line arguments.
+.PP
+Note that
+.B sleeping-getty
+works on VT:s, not TTY:s. It cannot wait for a serial console to
+become, active, only virtual terminals.
+.SH EXAMPLE
+.nf
+/sbin/\fBsleeping-getty\fP \fI15\fP /sbin/got tty\fI15\fP TERM=linux
+/sbin/\fBsleeping-getty\fP \fI16\fP /sbin/got tty\fI16\fP TERM=linux
+/sbin/\fBsleeping-getty\fP \fI20\fP /sbin/agetty -8 -s 38400 tty\fI20\fP linux
+.fi
+.SH RATIONALE
+It is nice to have a score or two of TTY:s available. However,
+starting them, can require some unnecessary CPU time and will
+was memory until they are actually used. This becomes extra
+important on resource contained machines.
+.SH "SEE ALSO"
+.BR getty (8),
+.BR mingetty (8),
+.BR agetty (8),
+.BR got (8),
+.BR vtchs (1),
+.BR inittab (5)
+.SH LICENSE
+Copyright \(co 2015  Mattias Andrée
+.br
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+.br
+This is free software: you are free to change and redistribute it.
+.br
+There is NO WARRANTY, to the extent permitted by law.
+.SH 
+.PP
+Copying and distribution of this manual, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.  This file is offered as-is,
+without any warranty.
+.SH BUGS
+Please report bugs to <https://github.com/maandree/sleeping-getty/issues>
+or to <maandree@member.fsf.org>.
