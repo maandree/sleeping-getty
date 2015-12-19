@@ -1,5 +1,5 @@
 NAME
-	sleeping-getty - Do not start a fullblow getty before it is necessary
+	sleeping-getty - Do not start a fullblown getty before it is necessary
 
 SYNOPSIS
 	sleeping-getty VTNO GETTY_COMMAND...

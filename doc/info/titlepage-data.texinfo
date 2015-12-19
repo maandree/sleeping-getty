@@ -1,6 +1,6 @@
 @c  The title and the subtitle of the manual.
 @set title sleeping-getty
-@set subtitle Do not start a fullblow getty before it is necessary
+@set subtitle Do not start a fullblown getty before it is necessary
 
 @c  The full name of the documented program or package.
 @set programname @command{sleeping-getty}
