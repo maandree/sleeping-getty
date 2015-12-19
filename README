@@ -1,0 +1,31 @@
+NAME
+	sleeping-getty - Do not start a fullblow getty before it is necessary
+
+SYNOPSIS
+	sleeping-getty VTNO GETTY_COMMAND...
+
+DESCRIPTION
+	sleeping-getty shall wait until VTNO (an number of a virtual terminal)
+	becomes the foreground console. Then, it shall execv(3) to GETTY_COMMAND,
+	with GETTY_COMMAND and all following arguments as the command line
+	arguments.
+
+	Note that this program ways on VT:s, not TTY:s. It cannot wait for a
+	serial console to become, active, only virtual terminals.
+
+EXAMPLE
+	/sbin/sleeping-getty 15 /sbin/got tty15 TERM=linux
+
+	/sbin/sleeping-getty 16 /sbin/got tty16 TERM=linux
+
+	/sbin/sleeping-getty 20 /sbin/agetty -8 -s 38400 tty20 linux
+
+RATIONALE
+	It is nice to have a score or two of TTY:s available. However,
+	starting them, can require some unnecessary CPU time and will
+	was memory until they are actually used. This becomes extra
+	important on resource contained machines.
+
+SEE ALSO
+	getty(8), mingetty(8), agetty(8), got(8), vtchs(1)
+
