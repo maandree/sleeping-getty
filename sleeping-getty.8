@@ -3,19 +3,20 @@
 sleeping\-getty \- Do not start a fullblown getty before it is necessary
 .SH SYNOPSIS
 .B sleeping\-getty
-.I VTNO
-.IR GETTY_COMMAND ...
+.I vtno
+.I getty-command
+.IR argument \ ...
 .SH DESCRIPTION
 .B sleeping\-getty
 shall wait until
-.I VTNO
+.I vtno
 (a number of a virtual terminal) becomes the foreground console.
 Then, it shall
 .BR execvp (3)
 to
-.IR GETTY_COMMAND ,
+.IR getty-command ,
 with
-.I GETTY_COMMAND
+.I getty-command
 and all following arguments as the command line arguments.
 .PP
 Note that
@@ -59,20 +60,6 @@ important on resource contained machines.
 .BR got (8),
 .BR vtchs (1),
 .BR inittab (5)
-.SH LICENSE
-Copyright \(co 2015  Mattias Andrée
-.br
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
-.br
-This is free software: you are free to change and redistribute it.
-.br
-There is NO WARRANTY, to the extent permitted by law.
-.SH 
-.PP
-Copying and distribution of this manual, with or without modification,
-are permitted in any medium without royalty provided the copyright
-notice and this notice are preserved.  This file is offered as-is,
-without any warranty.
-.SH BUGS
-Please report bugs to <https://github.com/maandree/sleeping-getty/issues>
-or to <maandree@member.fsf.org>.
+.SH AUTHORS
+Mattias Andrée
+.RI < maandree@kth.se >

@@ -2,12 +2,12 @@ NAME
 	sleeping-getty - Do not start a fullblown getty before it is necessary
 
 SYNOPSIS
-	sleeping-getty VTNO GETTY_COMMAND...
+	sleeping-getty vtno getty-command [arguments] ...
 
 DESCRIPTION
-	sleeping-getty shall wait until VTNO (a number of a virtual terminal)
-	becomes the foreground console. Then, it shall execvp(3) to GETTY_COMMAND,
-	with GETTY_COMMAND and all following arguments as the command line
+	sleeping-getty shall wait until vtno (a number of a virtual terminal)
+	becomes the foreground console. Then, it shall execvp(3) to getty-command,
+	with getty-command and all following arguments as the command line
 	arguments.
 
 	Note that sleeping-getty works on VT:s, not TTY:s. It cannot wait for a
@@ -37,4 +37,3 @@ RATIONALE
 
 SEE ALSO
 	getty(8), mingetty(8), agetty(8), got(8), vtchs(1), inittab(5)
-
