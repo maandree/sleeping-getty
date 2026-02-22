@@ -1,5 +1,5 @@
 NAME
-	sleeping-getty - Do not start a fullblown getty before it is necessary
+	sleeping-getty - Do not start a full-blown getty before it is necessary
 
 SYNOPSIS
 	sleeping-getty vtno getty-command [arguments] ...
@@ -11,7 +11,7 @@ DESCRIPTION
 	arguments.
 
 	Note that sleeping-getty works on VT:s, not TTY:s. It cannot wait for a
-	serial console to become, active, only virtual terminals.
+	serial console to become active, only virtual terminals.
 
 EXAMPLE
 	/sbin/sleeping-getty 15 /sbin/got tty15 TERM=linux
@@ -25,15 +25,15 @@ NOTES
 	of CPU cycles. This means, if naïvely used, that if you start
 	your computer, log in on tty1, and start X, and have startx
 	configured to start X on the next available VT. X will start
-	on VT 2. This is probably not want you want. Instead you
+	on VT 2. This is probably not what you want. Instead you
 	should edit startx to ensure that a VT lower than a preferred
 	number (customarily 7) will not be used.
 
 RATIONALE
 	It is nice to have a score or two of TTY:s available. However,
 	starting them, can require some unnecessary CPU time and will
-	was memory until they are actually used. This becomes extra
-	important on resource contained machines.
+	waste memory until they are actually used. This becomes extra
+	important on resource-constrained machines.
 
 SEE ALSO
 	getty(8), mingetty(8), agetty(8), got(8), vtchs(1), inittab(5)

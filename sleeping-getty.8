@@ -1,8 +1,8 @@
 .TH SLEEPING-GETTY 8 SLEEPING-GETTY
 .SH NAME
-sleeping\-getty \- Do not start a fullblown getty before it is necessary
+sleeping-getty \- Do not start a full-blown getty before it is necessary
 .SH SYNOPSIS
-.B sleeping\-getty
+.B sleeping-getty
 .I vtno
 .I getty-command
 .IR argument \ ...
@@ -20,9 +20,9 @@ with
 and all following arguments as the command line arguments.
 .PP
 Note that
-.B sleeping-getty
+.B sleeping\-getty
 works on VT:s, not TTY:s. It cannot wait for a serial console to
-become, active, only virtual terminals.
+become active, only virtual terminals.
 .SH EXAMPLE
 .nf
 /sbin/\fBsleeping\-getty\fP \fI15\fP /sbin/got tty\fI15\fP TERM=linux
@@ -43,7 +43,7 @@ configured to start
 .B X
 on the next available VT.
 .B X
-will start on VT\ 2. This is probably not want you want.
+will start on VT\ 2. This is probably not what you want.
 Instead you should edit
 .B startx
 to ensure that a VT lower than a preferred number
@@ -51,8 +51,8 @@ to ensure that a VT lower than a preferred number
 .SH RATIONALE
 It is nice to have a score or two of TTY:s available. However,
 starting them, can require some unnecessary CPU time and will
-was memory until they are actually used. This becomes extra
-important on resource contained machines.
+waste memory until they are actually used. This becomes extra
+important on resource-constrained machines.
 .SH "SEE ALSO"
 .BR getty (8),
 .BR mingetty (8),
